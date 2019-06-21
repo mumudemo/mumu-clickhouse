@@ -1,0 +1,606 @@
+[ERROR] [2019-06-19 22:01:14]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 713 ] | MSG = {dataSource-1} init error |
+java.sql.SQLException: ru.yandex.clickhouse.ClickHouseDriver
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:550)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:649)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:991)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:987)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:103)
+	at com.lovecws.mumu.clickhouse.jdbc.JdbcConfig.getConnection(JdbcConfig.java:81)
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:62)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.ClassNotFoundException: ru.yandex.clickhouse.ClickHouseDriver
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:548)
+	... 8 more
+[ERROR] [2019-06-19 22:01:14]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.JdbcConfig | Method = getConnection | Line = 83 ] | MSG = ru.yandex.clickhouse.ClickHouseDriver |
+java.sql.SQLException: ru.yandex.clickhouse.ClickHouseDriver
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:550)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:649)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:991)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:987)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:103)
+	at com.lovecws.mumu.clickhouse.jdbc.JdbcConfig.getConnection(JdbcConfig.java:81)
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:62)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.ClassNotFoundException: ru.yandex.clickhouse.ClickHouseDriver
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.alibaba.druid.util.JdbcUtils.createDriver(JdbcUtils.java:548)
+	... 8 more
+[INFO] [2019-06-19 22:01:14]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name java.lang.string,password java.lang.string,createTime java.util.date) engine MergeTree |
+[ERROR] [2019-06-19 22:01:14]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 67 ] | MSG =  |
+java.lang.NullPointerException
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:64)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+[INFO] [2019-06-19 22:03:49]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:03:49]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name java.lang.string,password java.lang.string,createTime java.util.date) engine MergeTree |
+[ERROR] [2019-06-19 22:03:49]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 67 ] | MSG = ClickHouse exception, code: 62, host: 192.168.0.25, port: 8123; Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 62, host: 192.168.0.25, port: 8123; Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.getInputStream(ClickHouseStatementImpl.java:611)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:114)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:97)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:92)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:87)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.execute(ClickHouseStatementImpl.java:223)
+	at com.alibaba.druid.pool.DruidPooledStatement.execute(DruidPooledStatement.java:421)
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:65)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 12 more
+[ERROR] [2019-06-19 22:03:49]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 111 ] | MSG = ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:108)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:32)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:05:16]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:05:16]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name java.lang.string,password java.lang.string,createTime java.util.date) engine MergeTree |
+[ERROR] [2019-06-19 22:05:16]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 67 ] | MSG = ClickHouse exception, code: 62, host: 192.168.0.25, port: 8123; Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 62, host: 192.168.0.25, port: 8123; Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.getInputStream(ClickHouseStatementImpl.java:611)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:114)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:97)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:92)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:87)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.execute(ClickHouseStatementImpl.java:223)
+	at com.alibaba.druid.pool.DruidPooledStatement.execute(DruidPooledStatement.java:421)
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:65)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 62, e.displayText() = DB::Exception: Syntax error: failed at position 68: .lang.string,password java.lang.string,createTime java.util.date) engine MergeTree. Expected one of: MATERIALIZED, ALIAS, COMMENT, CODEC, token, ClosingRoundBracket, Comma, TTL, DEFAULT (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 12 more
+[ERROR] [2019-06-19 22:05:16]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 111 ] | MSG = ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:108)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:32)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:06:11]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:06:11]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,createTime Date) engine MergeTree |
+[ERROR] [2019-06-19 22:06:11]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 67 ] | MSG = ClickHouse exception, code: 42, host: 192.168.0.25, port: 8123; Code: 42, e.displayText() = DB::Exception: Storage MergeTree requires 3 to 4 parameters: 
+name of column with date,
+[sampling element of primary key],
+primary key expression,
+index granularity
+
+MergeTree is a family of storage engines.
+
+MergeTrees are different in two ways:
+- they may be replicated and non-replicated;
+- they may do different actions on merge: nothing; sign collapse; sum; apply aggregete functions.
+
+So we have 14 combinations:
+    MergeTree, CollapsingMergeTree, SummingMergeTree, AggregatingMergeTree, ReplacingMergeTree, GraphiteMergeTree, VersionedCollapsingMergeTree
+    ReplicatedMergeTree, ReplicatedCollapsingMergeTree, ReplicatedSummingMergeTree, ReplicatedAggregatingMergeTree, ReplicatedReplacingMergeTree, ReplicatedGraphiteMergeTree, ReplicatedVersionedCollapsingMergeTree
+
+In most of cases, you need MergeTree or ReplicatedMergeTree.
+
+For replicated merge trees, you need to supply a path in ZooKeeper and a replica name as the first two parameters.
+Path in ZooKeeper is like '/clickhouse/tables/01/' where /clickhouse/tables/ is a common prefix and 01 is a shard name.
+Replica name is like 'mtstat01-1' - it may be the hostname or any suitable string identifying replica.
+You may use macro substitutions for these parameters. It's like ReplicatedMergeTree('/clickhouse/tables/{shard}/', '{replica}'...
+Look at the <macros> section in server configuration file.
+
+Next parameter (which is the first for unreplicated tables and the third for replicated tables) is the name of date column.
+Date column must exist in the table and have type Date (not DateTime).
+It is used for internal data partitioning and works like some kind of index.
+
+If your source data doesn't have a column of type Date, but has a DateTime column, you may add values for Date column while loading,
+    or you may INSERT your source data to a table of type Log and then transform it with INSERT INTO t SELECT toDate(time) AS date, * FROM ...
+If your source data doesn't have any date or time, you may just pass any constant for a date column while loading.
+
+Next parameter is optional sampling expression. Sampling expression is used to implement SAMPLE clause in query for approximate query execution.
+If you don't need approximate query execution, simply omit this parameter.
+Sample expression must be one of the elements of the primary key tuple. For example, if your primary key is (CounterID, EventDate, intHash64(UserID)), your sampling expression might be intHash64(UserID).
+
+Next parameter is the primary key tuple. It's like (CounterID, EventDate, intHash64(UserID)) - a list of column names or functional expressions in round brackets. If your primary key has just one element, you may omit round brackets.
+
+Careful choice of the primary key is extremely important for processing short-time queries.
+
+Next parameter is index (primary key) granularity. Good value is 8192. You have no reasons to use any other value.
+
+For the Collapsing mode, the last parameter is the name of a sign column - a special column that is used to 'collapse' rows with the same primary key while merging.
+
+For the Summing mode, the optional last parameter is a list of columns to sum while merging. This list is passed in round brackets, like (PageViews, Cost).
+If this parameter is omitted, the storage will sum all numeric columns except columns participating in the primary key.
+
+For the Replacing mode, the optional last parameter is the name of a 'version' column. While merging, for all rows with the same primary key, only one row is selected: the last row, if the version column was not specified, or the last row with the maximum version value, if specified.
+
+For VersionedCollapsing mode, the last 2 parameters are the name of a sign column and the name of a 'version' column. Version column must be in primary key. While merging, a pair of rows with the same primary key and different sign may collapse.
+
+Examples:
+
+MergeTree(EventDate, (CounterID, EventDate), 8192)
+
+MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+CollapsingMergeTree(StartDate, intHash32(UserID), (CounterID, StartDate, intHash32(UserID), VisitID), 8192, Sign)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192, (Shows, Clicks, Cost, CostCur, ShowsSumPosition, ClicksSumPosition, SessionNum, SessionLen, SessionCost, GoalsNum, SessionDepth))
+
+ReplicatedMergeTree('/clickhouse/tables/{layer}-{shard}/hits', '{replica}', EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+For further info please read the documentation: https://clickhouse.yandex/
+ (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 42, host: 192.168.0.25, port: 8123; Code: 42, e.displayText() = DB::Exception: Storage MergeTree requires 3 to 4 parameters: 
+name of column with date,
+[sampling element of primary key],
+primary key expression,
+index granularity
+
+MergeTree is a family of storage engines.
+
+MergeTrees are different in two ways:
+- they may be replicated and non-replicated;
+- they may do different actions on merge: nothing; sign collapse; sum; apply aggregete functions.
+
+So we have 14 combinations:
+    MergeTree, CollapsingMergeTree, SummingMergeTree, AggregatingMergeTree, ReplacingMergeTree, GraphiteMergeTree, VersionedCollapsingMergeTree
+    ReplicatedMergeTree, ReplicatedCollapsingMergeTree, ReplicatedSummingMergeTree, ReplicatedAggregatingMergeTree, ReplicatedReplacingMergeTree, ReplicatedGraphiteMergeTree, ReplicatedVersionedCollapsingMergeTree
+
+In most of cases, you need MergeTree or ReplicatedMergeTree.
+
+For replicated merge trees, you need to supply a path in ZooKeeper and a replica name as the first two parameters.
+Path in ZooKeeper is like '/clickhouse/tables/01/' where /clickhouse/tables/ is a common prefix and 01 is a shard name.
+Replica name is like 'mtstat01-1' - it may be the hostname or any suitable string identifying replica.
+You may use macro substitutions for these parameters. It's like ReplicatedMergeTree('/clickhouse/tables/{shard}/', '{replica}'...
+Look at the <macros> section in server configuration file.
+
+Next parameter (which is the first for unreplicated tables and the third for replicated tables) is the name of date column.
+Date column must exist in the table and have type Date (not DateTime).
+It is used for internal data partitioning and works like some kind of index.
+
+If your source data doesn't have a column of type Date, but has a DateTime column, you may add values for Date column while loading,
+    or you may INSERT your source data to a table of type Log and then transform it with INSERT INTO t SELECT toDate(time) AS date, * FROM ...
+If your source data doesn't have any date or time, you may just pass any constant for a date column while loading.
+
+Next parameter is optional sampling expression. Sampling expression is used to implement SAMPLE clause in query for approximate query execution.
+If you don't need approximate query execution, simply omit this parameter.
+Sample expression must be one of the elements of the primary key tuple. For example, if your primary key is (CounterID, EventDate, intHash64(UserID)), your sampling expression might be intHash64(UserID).
+
+Next parameter is the primary key tuple. It's like (CounterID, EventDate, intHash64(UserID)) - a list of column names or functional expressions in round brackets. If your primary key has just one element, you may omit round brackets.
+
+Careful choice of the primary key is extremely important for processing short-time queries.
+
+Next parameter is index (primary key) granularity. Good value is 8192. You have no reasons to use any other value.
+
+For the Collapsing mode, the last parameter is the name of a sign column - a special column that is used to 'collapse' rows with the same primary key while merging.
+
+For the Summing mode, the optional last parameter is a list of columns to sum while merging. This list is passed in round brackets, like (PageViews, Cost).
+If this parameter is omitted, the storage will sum all numeric columns except columns participating in the primary key.
+
+For the Replacing mode, the optional last parameter is the name of a 'version' column. While merging, for all rows with the same primary key, only one row is selected: the last row, if the version column was not specified, or the last row with the maximum version value, if specified.
+
+For VersionedCollapsing mode, the last 2 parameters are the name of a sign column and the name of a 'version' column. Version column must be in primary key. While merging, a pair of rows with the same primary key and different sign may collapse.
+
+Examples:
+
+MergeTree(EventDate, (CounterID, EventDate), 8192)
+
+MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+CollapsingMergeTree(StartDate, intHash32(UserID), (CounterID, StartDate, intHash32(UserID), VisitID), 8192, Sign)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192, (Shows, Clicks, Cost, CostCur, ShowsSumPosition, ClicksSumPosition, SessionNum, SessionLen, SessionCost, GoalsNum, SessionDepth))
+
+ReplicatedMergeTree('/clickhouse/tables/{layer}-{shard}/hits', '{replica}', EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+For further info please read the documentation: https://clickhouse.yandex/
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.getInputStream(ClickHouseStatementImpl.java:611)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:114)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:97)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:92)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.executeQuery(ClickHouseStatementImpl.java:87)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.execute(ClickHouseStatementImpl.java:223)
+	at com.alibaba.druid.pool.DruidPooledStatement.execute(DruidPooledStatement.java:421)
+	at com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService.createTable(AbstractJdbcService.java:65)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:28)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 42, e.displayText() = DB::Exception: Storage MergeTree requires 3 to 4 parameters: 
+name of column with date,
+[sampling element of primary key],
+primary key expression,
+index granularity
+
+MergeTree is a family of storage engines.
+
+MergeTrees are different in two ways:
+- they may be replicated and non-replicated;
+- they may do different actions on merge: nothing; sign collapse; sum; apply aggregete functions.
+
+So we have 14 combinations:
+    MergeTree, CollapsingMergeTree, SummingMergeTree, AggregatingMergeTree, ReplacingMergeTree, GraphiteMergeTree, VersionedCollapsingMergeTree
+    ReplicatedMergeTree, ReplicatedCollapsingMergeTree, ReplicatedSummingMergeTree, ReplicatedAggregatingMergeTree, ReplicatedReplacingMergeTree, ReplicatedGraphiteMergeTree, ReplicatedVersionedCollapsingMergeTree
+
+In most of cases, you need MergeTree or ReplicatedMergeTree.
+
+For replicated merge trees, you need to supply a path in ZooKeeper and a replica name as the first two parameters.
+Path in ZooKeeper is like '/clickhouse/tables/01/' where /clickhouse/tables/ is a common prefix and 01 is a shard name.
+Replica name is like 'mtstat01-1' - it may be the hostname or any suitable string identifying replica.
+You may use macro substitutions for these parameters. It's like ReplicatedMergeTree('/clickhouse/tables/{shard}/', '{replica}'...
+Look at the <macros> section in server configuration file.
+
+Next parameter (which is the first for unreplicated tables and the third for replicated tables) is the name of date column.
+Date column must exist in the table and have type Date (not DateTime).
+It is used for internal data partitioning and works like some kind of index.
+
+If your source data doesn't have a column of type Date, but has a DateTime column, you may add values for Date column while loading,
+    or you may INSERT your source data to a table of type Log and then transform it with INSERT INTO t SELECT toDate(time) AS date, * FROM ...
+If your source data doesn't have any date or time, you may just pass any constant for a date column while loading.
+
+Next parameter is optional sampling expression. Sampling expression is used to implement SAMPLE clause in query for approximate query execution.
+If you don't need approximate query execution, simply omit this parameter.
+Sample expression must be one of the elements of the primary key tuple. For example, if your primary key is (CounterID, EventDate, intHash64(UserID)), your sampling expression might be intHash64(UserID).
+
+Next parameter is the primary key tuple. It's like (CounterID, EventDate, intHash64(UserID)) - a list of column names or functional expressions in round brackets. If your primary key has just one element, you may omit round brackets.
+
+Careful choice of the primary key is extremely important for processing short-time queries.
+
+Next parameter is index (primary key) granularity. Good value is 8192. You have no reasons to use any other value.
+
+For the Collapsing mode, the last parameter is the name of a sign column - a special column that is used to 'collapse' rows with the same primary key while merging.
+
+For the Summing mode, the optional last parameter is a list of columns to sum while merging. This list is passed in round brackets, like (PageViews, Cost).
+If this parameter is omitted, the storage will sum all numeric columns except columns participating in the primary key.
+
+For the Replacing mode, the optional last parameter is the name of a 'version' column. While merging, for all rows with the same primary key, only one row is selected: the last row, if the version column was not specified, or the last row with the maximum version value, if specified.
+
+For VersionedCollapsing mode, the last 2 parameters are the name of a sign column and the name of a 'version' column. Version column must be in primary key. While merging, a pair of rows with the same primary key and different sign may collapse.
+
+Examples:
+
+MergeTree(EventDate, (CounterID, EventDate), 8192)
+
+MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+CollapsingMergeTree(StartDate, intHash32(UserID), (CounterID, StartDate, intHash32(UserID), VisitID), 8192, Sign)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192)
+
+SummingMergeTree(EventDate, (OrderID, EventDate, BannerID, PhraseID, ContextType, RegionID, PageID, IsFlat, TypeID, ResourceNo), 8192, (Shows, Clicks, Cost, CostCur, ShowsSumPosition, ClicksSumPosition, SessionNum, SessionLen, SessionCost, GoalsNum, SessionDepth))
+
+ReplicatedMergeTree('/clickhouse/tables/{layer}-{shard}/hits', '{replica}', EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192)
+
+For further info please read the documentation: https://clickhouse.yandex/
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 12 more
+[ERROR] [2019-06-19 22:06:11]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 111 ] | MSG = ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 60, host: 192.168.0.25, port: 8123; Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:108)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:32)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 60, e.displayText() = DB::Exception: Table industry.t_ods_mumu_clickhouse doesn't exist. (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:10:44]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:10:44]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,createTime Date) engine Memory |
+[ERROR] [2019-06-19 22:10:44]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 113 ] | MSG = ClickHouse exception, code: 27, host: 192.168.0.25, port: 8123; Code: 27, e.displayText() = DB::Exception: Cannot parse input: expected \n before:  22:10:44\n: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,  parsed text: "1"
+Column 1,   name: name,       type: String, parsed text: "cws"
+Column 2,   name: password,   type: String, parsed text: "lovecws"
+Column 3,   name: createTime, type: Date,   parsed text: "2019-06-19"
+ERROR: garbage after Date: " 22:10:44<LINE FEED>"
+ERROR: Date must be in YYYY-MM-DD format.
+
+ (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 27, host: 192.168.0.25, port: 8123; Code: 27, e.displayText() = DB::Exception: Cannot parse input: expected \n before:  22:10:44\n: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,  parsed text: "1"
+Column 1,   name: name,       type: String, parsed text: "cws"
+Column 2,   name: password,   type: String, parsed text: "lovecws"
+Column 3,   name: createTime, type: Date,   parsed text: "2019-06-19"
+ERROR: garbage after Date: " 22:10:44<LINE FEED>"
+ERROR: Date must be in YYYY-MM-DD format.
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:110)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:32)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:36)
+Caused by: java.lang.Throwable: Code: 27, e.displayText() = DB::Exception: Cannot parse input: expected \n before:  22:10:44\n: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,  parsed text: "1"
+Column 1,   name: name,       type: String, parsed text: "cws"
+Column 2,   name: password,   type: String, parsed text: "lovecws"
+Column 3,   name: createTime, type: Date,   parsed text: "2019-06-19"
+ERROR: garbage after Date: " 22:10:44<LINE FEED>"
+ERROR: Date must be in YYYY-MM-DD format.
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:24:27]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:24:27]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,createTime Timestamp) engine Memory |
+[INFO] [2019-06-19 22:28:46]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:28:47]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,createTime Timestamp) engine Memory |
+[ERROR] [2019-06-19 22:28:47]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 112 ] | MSG = ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:109)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:33)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:37)
+Caused by: java.lang.Throwable: Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:33:12]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:33:12]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[ERROR] [2019-06-19 22:33:12]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 112 ] | MSG = ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:109)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:33)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:37)
+Caused by: java.lang.Throwable: Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:34:43]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:34:44]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[ERROR] [2019-06-19 22:34:51]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 112 ] | MSG = ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 41, host: 192.168.0.25, port: 8123; Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:109)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:33)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:37)
+Caused by: java.lang.Throwable: Code: 41, e.displayText() = DB::Exception: Cannot parse datetime: (at row 1)
+
+Row 1:
+Column 0,   name: id,         type: Int32,    parsed text: "1"
+Column 1,   name: name,       type: String,   parsed text: "cws"
+Column 2,   name: password,   type: String,   parsed text: "lovecws"
+Column 3,   name: createTime, type: DateTime, ERROR: text "<LINE FEED>" is not like DateTime
+
+ (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:35:38]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:35:38]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[ERROR] [2019-06-19 22:36:06]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 112 ] | MSG = ClickHouse exception, code: 16, host: 192.168.0.25, port: 8123; Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 16, host: 192.168.0.25, port: 8123; Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:109)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:33)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:37)
+Caused by: java.lang.Throwable: Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:37:29]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:37:29]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[ERROR] [2019-06-19 22:37:29]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService | Method = batchInsertInto | Line = 112 ] | MSG = ClickHouse exception, code: 16, host: 192.168.0.25, port: 8123; Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+ |
+ru.yandex.clickhouse.except.ClickHouseException: ClickHouse exception, code: 16, host: 192.168.0.25, port: 8123; Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:58)
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:28)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.checkForErrorAndThrow(ClickHouseStatementImpl.java:815)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:791)
+	at ru.yandex.clickhouse.ClickHouseStatementImpl.sendStream(ClickHouseStatementImpl.java:773)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:363)
+	at ru.yandex.clickhouse.ClickHousePreparedStatementImpl.executeBatch(ClickHousePreparedStatementImpl.java:348)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.lovecws.mumu.clickhouse.jdbc.BasicJdbcService.batchInsertInto(BasicJdbcService.java:109)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.clickHouse(ClickhouseJdbcService.java:33)
+	at com.lovecws.mumu.clickhouse.service.ClickhouseJdbcService.main(ClickhouseJdbcService.java:37)
+Caused by: java.lang.Throwable: Code: 16, e.displayText() = DB::Exception: No such column create_time in table t_ods_mumu_clickhouse (version 19.8.3.8)
+
+	at ru.yandex.clickhouse.except.ClickHouseExceptionSpecifier.specify(ClickHouseExceptionSpecifier.java:53)
+	... 10 more
+[INFO] [2019-06-19 22:37:43]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:37:43]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[INFO] [2019-06-19 22:41:01]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:41:01]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |
+[INFO] [2019-06-19 22:41:58]  [ THREAD = main | Class = com.alibaba.druid.pool.DruidDataSource | Method = init | Line = 722 ] | MSG = {dataSource-1} inited |
+[INFO] [2019-06-19 22:41:58]  [ THREAD = main | Class = com.lovecws.mumu.clickhouse.jdbc.AbstractJdbcService | Method = createTable | Line = 63 ] | MSG = CREATE TABLE IF NOT EXISTS t_ods_mumu_clickhouse ( id int,name String,password String,create_time Timestamp) engine Memory |

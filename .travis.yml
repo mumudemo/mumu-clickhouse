@@ -1,0 +1,25 @@
+language: java
+
+os: linux
+
+env:
+  global:
+    - TRAVIS=true
+
+services:
+  - docker
+
+before_install:
+    - docker pull elasticsearch:5.6
+    - docker run -d -p 9300:9300 elasticsearch:5.6 -Etransport.host=0.0.0.0 -Ediscovery.zen.minimum_master_nodes=1
+    - docker ps -a
+
+sudo: required
+
+jdk:
+  - oraclejdk8
+
+script: mvn clean install -Ptravis cobertura:cobertura
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
